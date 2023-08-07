@@ -1,6 +1,6 @@
 <script>
 import Category from "./components/Category.vue";
-
+import Task from "./components/Task.vue";
 export default {
   name: "App",
   components: {
@@ -22,8 +22,9 @@ export default {
   <div id="app" class="app">
     <div class="my-tasks">
       <h1 class="title">My Task</h1>
-      <Category v-for="category of categories" :category="category" />
+      <Category v-for="category of categories" :category="category" v-bind:key="category.id"/>
     </div>
+    <Task v-for="task of categories" :task="task" v-bind:key="task.id" />
   </div>
 </template>
 
