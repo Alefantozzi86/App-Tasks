@@ -91,10 +91,14 @@
 
 .my-tasks {
   display: flex;
-  justify-content: stretch;
+  justify-content: center;
+  align-content: center;
+  margin:60px 700px 300px 300px;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+  color: gray;
+  font-family: Dela Gothic One;
 }
 
 .title {

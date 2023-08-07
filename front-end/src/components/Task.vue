@@ -5,9 +5,11 @@
       <span>{{ data?.title }}</span>
       <span>{{ data?.description }}</span>
     </div>
-    <span>0</span>
-    <span>📝</span>
-    <span>X</span>
+   <button>Completed</button>
+   <button>Edit</button>
+   <button>Delete</button>
+   
+  
   </div>
 </template>
 
@@ -22,14 +24,16 @@ export default {
 
 <style>
 .task-wrapper {
-  width: 300px;
-  height: 50px;
+  width: 500px;
+  height: 60px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
-  background: #eff2ef;
-  padding-right: 5px;
+  background:#eff2ef;
+  padding-right: 15px;
+  margin-top: 20px;
 }
 
 .task-band {
@@ -38,6 +42,22 @@ export default {
   background-color: '#949AA8';
 }
 
+button {
+  box-shadow: 0px 10px 14px -7px #3e7327;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color:#77b55a;
+	border-radius:4px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+}
 .task-body {
   display: flex;
   justify-content: space-between;

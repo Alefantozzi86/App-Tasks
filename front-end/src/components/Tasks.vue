@@ -1,6 +1,6 @@
 <template>
     <div>
-    <button @click="$emit('back')">Back</button>
+    <button id="my-button" @click="$emit('back')">Back</button>
     <Task v-for="task of data" :data="task" :key="task.id" />
 </div>
   </template>
@@ -25,13 +25,9 @@
   </script>
   
   <style>
-button{
-    font-family: "Inter", Sans-serif;
-    font-size: 15px;
-    font-weight: 100;
-    background-color: #3B0A8A;
-    border-radius: 800px 800px 800px 800px;
-    padding: 10px 20px 10px 20px;
+
+#my-button{
+    padding: 12px 15px
 }
 </style>
   

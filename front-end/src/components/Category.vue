@@ -5,7 +5,7 @@
       :style="{ 'background-color': category.color }"
     ></div>
     <span class="category-name">{{ category.name }}</span>
-    <span>📝</span>
+   <button> Edit</button>
   </div>
 </template>
 
@@ -19,20 +19,27 @@ export default {
 </script>
 
 <style>
+
 .category-wrapper {
-  width: 300px;
+  width: 500px;
   height: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
+  margin-top:8px;
+  margin-bottom: 15px;
+  border-radius: 8px;
   align-items: center;
   gap: 5px;
   background: #eff2ef;
-  padding-right: 5px;
+  padding-right: 10px;
 }
+
 
 .category-band {
   width: 10%;
   height: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .category-name {
