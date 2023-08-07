@@ -6,7 +6,6 @@
     ></div>
     <span class="category-name">{{ category.name }}</span>
     <span>📝</span>
-    <span>X</span>
   </div>
 </template>
 
