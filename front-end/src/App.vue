@@ -1,32 +1,80 @@
+<template>
+  <div id="app" 
+  class="app"
+  v-bind:style="[
+      selectedCategory !== null
+        ? { background: selectedCategory.color }
+        : { background: '#67cb54' },
+    ]">
+    <div class="my-tasks"
+    v-if="selectedCategory">
+      <h1 class="title">{{selectedCategory.name}}</h1>
+      <Tasks
+        :data="selectedCategory?.tasks"
+        @back="() => (selectedCategory = null)"
+      />
+    </div>
+  </div>
+</template>
 <script>
 import Category from "./components/Category.vue";
-import Task from "./components/Task.vue";
+import Tasks from "./components/Tasks.vue";
+import { ref } from "vue";
+
 export default {
   name: "App",
   components: {
     Category,
+    Tasks,
   },
+
   data() {
     return {
       categories: [
-        { name: "HOME", color: "#8C56F6" },
-        { name: "WORK", color: "#F9DC50" },
-        { name: "OTHER", color: "#1E4B26" },
+        {
+          name: 'HOME',
+          color: '#8C56F6',
+          tasks: [
+            {
+              title: 'task 1',
+              description: 'description task 1',
+              pendingState: true,
+            },
+          ],
+        },
+        {
+          name: 'WORK',
+          color: '#F9DC50',
+          tasks: [
+            {
+              title: 'task 2',
+              description: 'description task 2',
+              pendingState: true,
+            },
+          ],
+        },
+        {
+          name: 'OTHER',
+          color: '#1E4B26',
+          tasks: [
+            {
+              title: 'task 3',
+              description: 'description task 3',
+              pendingState: true,
+            },
+          ],
+        },
       ],
+    };
+  },
+  setup(){
+    const selectedCategory = ref(null);
+    return{
+      selectedCategory,
     };
   },
 };
 </script>
-
-<template>
-  <div id="app" class="app">
-    <div class="my-tasks">
-      <h1 class="title">My Task</h1>
-      <Category v-for="category of categories" :category="category" v-bind:key="category.id"/>
-    </div>
-    <Task v-for="task of categories" :task="task" v-bind:key="task.id" />
-  </div>
-</template>
 
 <style>
 .app {
