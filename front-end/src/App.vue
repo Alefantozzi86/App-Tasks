@@ -1,47 +1,50 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+import Category from "./components/Category.vue";
+
+export default {
+  name: "App",
+  components: {
+    Category,
+  },
+  data() {
+    return {
+      categories: [
+        { name: "HOME", color: "#8C56F6" },
+        { name: "WORK", color: "#F9DC50" },
+        { name: "OTHER", color: "#1E4B26" },
+      ],
+    };
+  },
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div id="app" class="app">
+    <div class="my-tasks">
+      <h1 class="title">My Task</h1>
+      <Category v-for="category of categories" :category="category" />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+.app {
+  background: #67cb54;
+  height: 100vh;
+  font-family: "Dela Gothic One", Sans-serif;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.my-tasks {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.title {
+  color: white;
+  width: 100%;
+  text-align: center;
 }
 </style>
