@@ -5,25 +5,27 @@
       v-for="task of data"
       :data="task"
       :key="task.id"
-      @completeTask="completeTask(task)"
-      @editTask="editTask(task)"
-      @deleteTask="deleteTask(task)"
+      :categoryName="categoryName"
+      @completeTask="(emitObject) => completeTask(emitObject)"
+      @editTask="(emitObject) =>  editTask(emitObject)"
+      @deleteTask="(emitObject) => deleteTask(emitObject, categories)"
     />
   </div>
 </template>
-
 <script>
 import Task from "./Task.vue";
-
+import { toRaw } from 'vue';
 export default {
   name: "Tasks",
   props: {
+    categoryName: String,
     data: Object,
+    categories: Object
   },
   components: {
     Task,
   },
-  emits: ['back', 'completeTask', 'editTask', 'deleteTask'],
+  emits: ['back', 'completeTask', 'editTask', 'deleteTask', 'updateCategories'],
   methods: {
     back() {
       this.$emit('back');
@@ -34,19 +36,27 @@ export default {
     editTask(task) {
       this.$emit('editTask', task);
     },
-    deleteTask(task) {
-      this.$emit('deleteTask', task);
+    deleteTask(proxyTask, proxyCategories) {
+      const task = toRaw(proxyTask);
+      const rawCategories = toRaw(proxyCategories);
+      const updatedCategories = rawCategories.map((category) => {
+        if(category.name === task.categoryName) {
+          const tasks = category.tasks.filter(categoryTask => categoryTask.id !== task.id);
+          category.tasks = tasks;
+          return category;
+        } else {
+          return category;
+        }
+      })
+      this.$emit('updateCategories', updatedCategories);
     },
   },
-
 };
 </script>
-
 <script setup>
-defineProps(["data"]);
+defineProps(["data", "categoryName", "categories"]);
 defineEmits(["back"]);
 </script>
-
 <style>
 #my-button {
   padding: 12px 15px;
