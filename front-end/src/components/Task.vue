@@ -7,7 +7,7 @@
       <span id="title">{{ data?.title }}</span>
       <span>{{ data?.description }}</span>
     </div>
-   <!-- <button @click="editTask">Edit</button> -->
+    <!-- <button @click="editTask">Edit</button> -->
    <button @click="deleteTask">Delete</button>
   </div>
 </template>

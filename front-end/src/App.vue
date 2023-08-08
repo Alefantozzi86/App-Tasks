@@ -104,7 +104,6 @@
             this.categories = updatedCategories;
           };
           const handleEditTask = (task) => {
-            //lógica para editar una tarea aquí (formulario o modal)
           };
           const handleDeleteTask = (proxyTask, proxyCategories) => {
           };

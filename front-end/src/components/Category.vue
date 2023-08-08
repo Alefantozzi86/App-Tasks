@@ -5,7 +5,7 @@
       :style="{ 'background-color': category.color }"
     ></div>
     <span class="category-name">{{ category.name }}</span>
-   <button> Edit</button>
+   <!-- <button> Edit</button> -->
   </div>
 </template>
 
