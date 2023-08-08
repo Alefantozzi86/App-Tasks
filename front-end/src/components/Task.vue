@@ -87,7 +87,8 @@ margin-left:20px;
 }
 input{
   border-radius: 15px;
-  border-block-color:inherit;
+  border:0;
+  text-align: center;
 }
 .task-body {
   display:contents;
