@@ -121,7 +121,7 @@
 <style>
 .app {
   height: 100vh;
-  font-family: 'Dela Gothic One', Sans-serif;
+  font-family: "Inter", Sans-serif;
 }
 .my-tasks {
   display: flex;
@@ -132,7 +132,7 @@
   flex-direction: column;
   gap: 1rem;
   color: gray;
-  font-family: Dela Gothic One;
+  font-family: "Inter", Sans-serif;
 }
 .title {
   color: white;

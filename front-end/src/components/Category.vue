@@ -21,7 +21,7 @@ export default {
 <style>
 
 .category-wrapper {
-  width: 500px;
+  width: 300px;
   height: 50px;
   display: flex;
   justify-content:space-between;
@@ -44,5 +44,7 @@ export default {
 
 .category-name {
   width: 80%;
+  font-size:larger;
+  margin-left: 10px;
 }
 </style>

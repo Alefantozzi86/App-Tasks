@@ -9,12 +9,14 @@
       @completeTask="(emitObject) => completeTask(emitObject)"
       @editTask="(emitObject) =>  editTask(emitObject)"
       @deleteTask="(emitObject) => deleteTask(emitObject, categories)"
-    />
-  </div>
-</template>
+      @addTask="handleAddTask" 
+      />
+    </div>
+  </template>
 <script>
 import Task from "./Task.vue";
 import { toRaw } from 'vue';
+
 export default {
   name: "Tasks",
   props: {
@@ -30,6 +32,7 @@ export default {
     back() {
       this.$emit('back');
     },
+
     completeTask(task) {
       this.$emit('completeTask', task);
     },
