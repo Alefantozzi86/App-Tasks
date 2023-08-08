@@ -5,12 +5,12 @@
       <span>{{ data?.title }}</span>
       <span>{{ data?.description }}</span>
     </div>
-   <button>Completed</button>
-   <button>Edit</button>
-   <button>Delete</button>
-   
+   <button  @click="completeTask" >Completed</button>
   
+   <button @click="editTask">Edit</button>
+   <button @click="deleteTask">Delete</button>
   </div>
+
 </template>
 
 <script>
@@ -18,6 +18,17 @@ export default {
   name: 'Task',
   props: {
     data: Object,
+  },
+  methods: {
+    completeTask() {
+      this.$emit('completeTask', this.data);
+    },
+    editTask() {
+      this.$emit('editTask', this.data);
+    },
+    deleteTask() {
+      this.$emit('deleteTask', this.data);
+    },
   },
 };
 </script>

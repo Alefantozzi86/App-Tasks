@@ -21,6 +21,7 @@
       :data="categories"
       @selectCategory="(category) => (selectedCategory = category)"
       />
+      
     </div>
   </div>
 </template>
@@ -81,8 +82,47 @@
             selectedCategory,
           };
         },
-      };
-      </script>
+        setup() {
+    const selectedCategory = ref(null);
+
+    const handleCompleteTask = (task) => {
+      const updatedCategories = this.categories.map((category) => {
+        const updatedCategory = { ...category };
+        updatedCategory.tasks = updatedCategory.tasks.map((t) => {
+          if (t === task) {
+            return { ...t, pendingState: false };
+          }
+          return t;
+        });
+        return updatedCategory;
+      });
+
+      this.categories = updatedCategories;
+    };
+
+    const handleEditTask = (task) => {
+      //lógica para editar una tarea aquí (formulario o modal)
+    };
+
+    const handleDeleteTask = (task) => {
+      const updatedCategories = this.categories.map((category) => {
+        const updatedCategory = { ...category };
+        updatedCategory.tasks = updatedCategory.tasks.filter((t) => t !== task);
+        return updatedCategory;
+      });
+
+      this.categories = updatedCategories;
+    };
+
+    return {
+      selectedCategory,
+      handleCompleteTask,
+      handleEditTask,
+      handleDeleteTask,
+    };
+  },
+};
+ </script>
 <style>
 .app {
   height: 100vh;
